@@ -21,11 +21,11 @@ import { central, db1, db2, db3, vault } from "./databases.js";
     }
 
     // Fetch which database to use from the central function
-    const dbName = await central(id);
+    const returnedValue = await central(id);
 
     
     const [dbData, vaultData] = await Promise.all([
-      dbs[dbName](id),  
+      dbs[returnedValue](id),  
       vault(id)        
     ]);
 
